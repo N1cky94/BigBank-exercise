@@ -1,6 +1,7 @@
 package be.archilios.bigBank.domain;
 
 import java.security.InvalidParameterException;
+import java.util.Objects;
 
 public class BankAccount {
     private final String iban;
@@ -53,5 +54,21 @@ public class BankAccount {
                 ", balance=" + balance +
                 ", transactions=" + transactions +
                 '}';
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        
+        BankAccount that = (BankAccount) o;
+        return Objects.equals(getIban(), that.getIban()) && Objects.equals(getAccountHolder(), that.getAccountHolder());
+    }
+    
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(getIban());
+        result = 31 * result + Objects.hashCode(getAccountHolder());
+        return result;
     }
 }
