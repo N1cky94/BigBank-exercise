@@ -2,8 +2,6 @@ package be.archilios.bigBank;
 
 import be.archilios.bigBank.domain.*;
 
-import java.math.BigDecimal;
-
 import static be.archilios.bigBank.CustomAssertion.assertEquals;
 import static be.archilios.bigBank.CustomAssertion.assertThrows;
 
@@ -16,7 +14,8 @@ public class BigBankApp {
     }
     
     public static void givenTwoBankAccounts_whenMoneyIsTransfered_TheBalancesShouldBeAdjusted() {
-        InMemoryAccountRepository accountRepository = new InMemoryAccountRepository();
+        InMemoryAccountRepository.resetDataStore();
+        InMemoryAccountRepository accountRepository = InMemoryAccountRepository.getInstance();
         
         BankAccount owner = accountRepository.getAccountByIban("BE1234567891234");
         BankAccount receiver = accountRepository.getAccountByIban("BE1234567895678");
@@ -29,7 +28,8 @@ public class BigBankApp {
     }
     
     public static void givenTwoIdenticalBankAccounts_whenMoneyIsTransfered_anErrorShouldBeThrown() {
-        InMemoryAccountRepository accountRepository = new InMemoryAccountRepository();
+        InMemoryAccountRepository.resetDataStore();
+        InMemoryAccountRepository accountRepository = InMemoryAccountRepository.getInstance();
         BankAccount owner = accountRepository.getAccountByIban("BE1234567891234");
         TransferHandler handler = new TransferHandler();
         
