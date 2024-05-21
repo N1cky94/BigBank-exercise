@@ -5,8 +5,7 @@ import be.archilios.bigBank.domain.Euro;
 import be.archilios.bigBank.domain.InMemoryAccountRepository;
 import be.archilios.bigBank.domain.TransferHandler;
 
-import static be.archilios.bigBank.CustomAssertion.assertEquals;
-import static be.archilios.bigBank.CustomAssertion.assertThrows;
+import static be.archilios.bigBank.test.CustomAssertion.*;
 
 public class TestApp {
     public static void main(String[] args) {

@@ -1,9 +1,7 @@
-package be.archilios.bigBank;
+package be.archilios.bigBank.test;
 
 import be.archilios.bigBank.domain.Euro;
 import be.archilios.bigBank.domain.EuroBalance;
-
-import java.util.function.Function;
 
 public class CustomAssertion {
     public static void assertEquals(Euro check, Euro expected) {
